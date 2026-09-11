@@ -1,9 +1,13 @@
-#Smart Blood Donation System - Version 1.0
-donors = {"A+": "Rahul", "B+": "Priya", "O+": "Amit"}
+#Smart Blood Donation System - Version 1.1
+donors = [
+    ("Rahul", "A+"),
+    ("Priya", "B+"),
+    ("Amit", "O+"),
+]
 
-blood = input("Enter blood group: ").upper()
+blood = input("Required blood group: ").upper()
 
-if blood in donors:
-    print("Donor:", donors[blood])
-else:
-    print("No donor available")
+matches = [name for name, group in donors if group == blood]
+
+print("Donors:", ", ".join(matches) if matches else "No donor found")
+
